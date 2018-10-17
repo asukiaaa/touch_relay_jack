@@ -1,0 +1,282 @@
+EESchema Schematic File Version 4
+LIBS:touch_relay_jack-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MCU_Module:Pro_Micro A1
+U 1 1 5BC6F1D0
+P 6750 3650
+F 0 "A1" H 7000 4500 50  0000 C CNN
+F 1 "Pro_Micro" H 7100 4400 50  0000 C CNN
+F 2 "Module:Pro_Micro" H 6900 2850 50  0001 L CNN
+F 3 "https://www.sparkfun.com/products/12640" H 6550 4500 50  0001 C CNN
+	1    6750 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:AudioJack3_Ground J1
+U 1 1 5BC6F2BC
+P 3700 2100
+F 0 "J1" V 3350 2100 50  0000 C CNN
+F 1 "AudioJack3_Ground" V 3450 2100 50  0000 C CNN
+F 2 "Connector_Audio:Jack_3.5mm_Switronic_ST-005-G_horizontal" H 3700 2100 50  0001 C CNN
+F 3 "~" H 3700 2100 50  0001 C CNN
+	1    3700 2100
+	0    1    1    0   
+$EndComp
+$Comp
+L Relay:Y14x-1C-xxDS K1
+U 1 1 5BC6F376
+P 3700 3050
+F 0 "K1" V 4250 3000 50  0000 L CNN
+F 1 "Y14x-1C-xxDS" V 4150 2750 50  0000 L CNN
+F 2 "Relay_THT:Relay_SPDT_HsinDa_Y14" H 4150 3000 50  0001 L CNN
+F 3 "http://www.hsinda.com.cn/en/imgdown.asp?FileName=UploadFiles/201431310240386.pdf" H 3700 3050 50  0001 C CNN
+	1    3700 3050
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:Q_NMOS_GSD Q1
+U 1 1 5BC7161B
+P 4000 4300
+F 0 "Q1" H 4205 4346 50  0000 L CNN
+F 1 "Q_NMOS_GSD" H 4205 4255 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 4200 4400 50  0001 C CNN
+F 3 "~" H 4000 4300 50  0001 C CNN
+	1    4000 4300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3400 2750 3300 2750
+Wire Wire Line
+	3300 2750 3300 2400
+Wire Wire Line
+	3300 2400 3600 2400
+Wire Wire Line
+	3600 2400 3600 2300
+Wire Wire Line
+	3700 2300 3700 2400
+Wire Wire Line
+	3700 2400 3800 2400
+Wire Wire Line
+	4100 2400 4100 2850
+Wire Wire Line
+	4100 2850 4000 2850
+Wire Wire Line
+	3800 2300 3800 2400
+Connection ~ 3800 2400
+Wire Wire Line
+	3800 2400 4100 2400
+NoConn ~ 3400 2950
+$Comp
+L power:+5V #PWR0101
+U 1 1 5BC71990
+P 3050 3250
+F 0 "#PWR0101" H 3050 3100 50  0001 C CNN
+F 1 "+5V" H 3065 3423 50  0000 C CNN
+F 2 "" H 3050 3250 50  0001 C CNN
+F 3 "" H 3050 3250 50  0001 C CNN
+	1    3050 3250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3050 3250 3300 3250
+$Comp
+L Device:D_Shockley D1
+U 1 1 5BC71B93
+P 3700 3750
+F 0 "D1" H 3700 3966 50  0000 C CNN
+F 1 "D_Shockley" H 3700 3875 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-523" H 3700 3750 50  0001 C CNN
+F 3 "~" H 3700 3750 50  0001 C CNN
+	1    3700 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5BC71C21
+P 3900 4000
+F 0 "R1" V 3800 4000 50  0000 C CNN
+F 1 "1K" V 3900 4000 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 3830 4000 50  0001 C CNN
+F 3 "~" H 3900 4000 50  0001 C CNN
+	1    3900 4000
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2
+U 1 1 5BC71D06
+P 3500 4000
+F 0 "D2" H 3500 3900 50  0000 C CNN
+F 1 "LED" H 3500 4100 50  0000 C CNN
+F 2 "LED_SMD:LED_0603_1608Metric" H 3500 4000 50  0001 C CNN
+F 3 "~" H 3500 4000 50  0001 C CNN
+	1    3500 4000
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3300 3250 3300 3750
+Wire Wire Line
+	3300 4000 3350 4000
+Connection ~ 3300 3250
+Wire Wire Line
+	3300 3250 3400 3250
+Wire Wire Line
+	3650 4000 3750 4000
+Wire Wire Line
+	4000 3250 4100 3250
+Wire Wire Line
+	4100 3250 4100 3750
+Wire Wire Line
+	4100 4000 4050 4000
+Connection ~ 4100 4000
+Wire Wire Line
+	4100 4000 4100 4100
+Wire Wire Line
+	4100 3750 3850 3750
+Connection ~ 4100 3750
+Wire Wire Line
+	4100 3750 4100 4000
+Wire Wire Line
+	3550 3750 3300 3750
+Connection ~ 3300 3750
+Wire Wire Line
+	3300 3750 3300 4000
+$Comp
+L Device:R R2
+U 1 1 5BC72565
+P 3700 4500
+F 0 "R2" V 3600 4500 50  0000 C CNN
+F 1 "1K" V 3700 4500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 3630 4500 50  0001 C CNN
+F 3 "~" H 3700 4500 50  0001 C CNN
+	1    3700 4500
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3800 4300 3700 4300
+Wire Wire Line
+	3700 4300 3700 4350
+$Comp
+L power:GND #PWR0102
+U 1 1 5BC7284E
+P 4100 4800
+F 0 "#PWR0102" H 4100 4550 50  0001 C CNN
+F 1 "GND" H 4105 4627 50  0000 C CNN
+F 2 "" H 4100 4800 50  0001 C CNN
+F 3 "" H 4100 4800 50  0001 C CNN
+	1    4100 4800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4100 4800 4100 4700
+Wire Wire Line
+	3700 4650 3700 4700
+Wire Wire Line
+	3700 4700 4100 4700
+Connection ~ 4100 4700
+Wire Wire Line
+	4100 4700 4100 4500
+Text GLabel 3600 4300 0    50   Input ~ 0
+Relay
+Wire Wire Line
+	3600 4300 3700 4300
+Connection ~ 3700 4300
+$Comp
+L power:GND #PWR0103
+U 1 1 5BC73206
+P 6750 4500
+F 0 "#PWR0103" H 6750 4250 50  0001 C CNN
+F 1 "GND" H 6755 4327 50  0000 C CNN
+F 2 "" H 6750 4500 50  0001 C CNN
+F 3 "" H 6750 4500 50  0001 C CNN
+	1    6750 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0104
+U 1 1 5BC73221
+P 6650 2850
+F 0 "#PWR0104" H 6650 2700 50  0001 C CNN
+F 1 "+5V" H 6665 3023 50  0000 C CNN
+F 2 "" H 6650 2850 50  0001 C CNN
+F 3 "" H 6650 2850 50  0001 C CNN
+	1    6650 2850
+	1    0    0    -1  
+$EndComp
+Text GLabel 6250 3650 0    50   Input ~ 0
+Relay
+NoConn ~ 6250 3250
+NoConn ~ 6250 3350
+NoConn ~ 6250 3450
+NoConn ~ 6250 3550
+NoConn ~ 6250 3750
+NoConn ~ 6250 3850
+NoConn ~ 6250 3950
+NoConn ~ 7250 4150
+NoConn ~ 7250 4050
+NoConn ~ 7250 3950
+NoConn ~ 7250 3850
+NoConn ~ 7250 3750
+NoConn ~ 7250 3650
+NoConn ~ 7250 3550
+NoConn ~ 7250 3450
+NoConn ~ 7250 3250
+NoConn ~ 6850 2850
+$Comp
+L Mechanical:MountingHole_Pad H1
+U 1 1 5BC772E4
+P 5850 3950
+F 0 "H1" H 5800 4200 50  0000 L CNN
+F 1 "M4Hole" H 5700 4100 50  0000 L CNN
+F 2 "MountingHole:MountingHole_4.3mm_M4_ISO7380_Pad" H 5850 3950 50  0001 C CNN
+F 3 "~" H 5850 3950 50  0001 C CNN
+	1    5850 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 5BC773B1
+P 6050 4150
+F 0 "R3" V 5950 4150 50  0000 C CNN
+F 1 "1M" V 6050 4150 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5980 4150 50  0001 C CNN
+F 3 "~" H 6050 4150 50  0001 C CNN
+	1    6050 4150
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6250 4150 6200 4150
+Wire Wire Line
+	5900 4150 5850 4150
+Wire Wire Line
+	5850 4150 5850 4050
+Wire Wire Line
+	5850 4050 6250 4050
+$Comp
+L Mechanical:MountingHole_Pad H2
+U 1 1 5BC6FF48
+P 5550 3950
+F 0 "H2" H 5500 4200 50  0000 L CNN
+F 1 "M3Hole" H 5400 4100 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 5550 3950 50  0001 C CNN
+F 3 "~" H 5550 3950 50  0001 C CNN
+	1    5550 3950
+	1    0    0    -1  
+$EndComp
+Connection ~ 5850 4050
+Wire Wire Line
+	5850 4050 5550 4050
+$EndSCHEMATC
