@@ -2,6 +2,14 @@
 
 Control a audio jack with using relay referencing touch sensor value.
 
+# Pin assign
+
+Pro Micro Pin | Role
+--------- | ----
+D4 | Relay
+D8 | Touch signal in
+D9 | Touch signal out
+
 # Components
 
 - [Relay](http://akizukidenshi.com/catalog/g/gP-01346/)
