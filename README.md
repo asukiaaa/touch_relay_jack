@@ -1,5 +1,8 @@
 # touch_relay_jack
 
+![case](/images/case.jpg)
+![opened_case](/images/opened_case.jpg)
+
 Control a audio jack with using relay referencing touch sensor value.
 
 # Pin assign
