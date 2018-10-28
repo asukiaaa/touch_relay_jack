@@ -102,6 +102,10 @@ cover = cq.Workplane("ZY").moveTo(*coverPoints[0]).polyline(coverPoints[1:])\
 hookSpace = cq.Workplane("XY").box(hookWidth + clealance * 2,
                                    boxThickness,
                                    hookHeight + clealance * 2)
+hookSupportHeight = boxInnerHighHeight - hookCenterHeight
+hookSupportLength = hookConnectionLength - clealance
+hookSupport = cq.Workplane("XY")\
+    .box(hookWidth, hookSupportLength, hookSupportHeight)
 hook = cq.Workplane("XY").box(hookWidth,
                               hookLength + hookConnectionLength,
                               hookHeight)\
@@ -110,11 +114,16 @@ for x in [hookCenterXFromPCBCenter, - hookCenterXFromPCBCenter]:
     body.cut(hookSpace.translate((x,
                                   boxInnerLength/2 + boxThickness / 2,
                                   hookCenterHeight)))
-    cover = cover.union(hook.translate(
-        (x,
-         boxInnerLength/2 + (hookLength + hookConnectionLength)/2 -
-         hookConnectionLength,
-         hookCenterHeight)))
+    cover = cover\
+        .union(hook.translate(
+            (x,
+             boxInnerLength/2 + (hookLength + hookConnectionLength)/2 -
+             hookConnectionLength,
+             hookCenterHeight)))\
+        .union(hookSupport.translate(
+            (x,
+             boxInnerLength/2 - hookSupportLength / 2 - clealance,
+             boxInnerHighHeight - hookSupportHeight / 2)))
 
 coverHole = cq.Workplane("XY").circle(coverHoleRadius).extrude(boxThickness)
 for (x, y) in coverHolePositions:
