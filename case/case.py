@@ -13,25 +13,27 @@ boxFillet = 1.5
 boxOuterWidth = boxInnerWidth + boxThickness * 2
 boxOuterLength = boxInnerLength + boxThickness * 2
 boxOuterHeight = boxInnerHighHeight + boxThickness * 2
-boxTopSpaceLength = 20.5
+boxTopSpaceLength = 19.5
 mountingHoleRadius = 3.0 / 2
-mountingHolePositions = [(0, 12.2), (-13.0, -16.8), (13.0, -16.8)]
+mountingHolePositions = [(0, 12.8), (-13.2, -16.2), (13.2, -16.2)]
 mountHeight = 2.0
 coverHoleRadius = 3.5 / 2
 coverHolePositions = mountingHolePositions[1:]
 jackHoleRadius = 6.0 / 2
 jackCenterHeight = 4.0 + mountHeight
-jackCenterFromPCBCenter = 11.0
+jackCenterFromPCBCenter = 10.8
+usbHoleBottom = 13.5 + mountHeight
 usbHoleWidth = 10.0
-usbHoleHeight = 5.0
-usbHoleCenterHeight = 15 + mountHeight
+usbHoleHeight = boxInnerHighHeight + boxThickness - usbHoleBottom
+usbHoleCenterHeight = usbHoleHeight / 2 + usbHoleBottom
 usbHoleCenterFromPCBCenter = jackCenterFromPCBCenter
 hookWidth = 6.0
 hookHeight = 1.5
 hookLength = boxThickness * 2 / 3
 hookConnectionLength = 1.0
 hookCenterXFromPCBCenter = 9.0
-hookCenterHeight = 16.5 + hookHeight / 2 + mountHeight
+hookBottom = 16.0
+hookCenterHeight = hookBottom + hookHeight / 2 + mountHeight
 M4HoleFromPCBCenter = 13.5
 M4HoleRadius = 9.0 / 2
 LEDSpaceWidth = 4.0
@@ -128,6 +130,17 @@ LEDSpace = cq.Workplane("XY")\
                 -LEDSpaceCenterFromPCBCenter,
                 boxInnerLowHeight + LEDSpaceHeight / 2))
 cover.cut(LEDSpace)
+
+usbCoverLength = boxThickness + clealance
+usbCoverWidth = usbHoleWidth - clealance * 2
+usbCoverHeight = boxThickness + clealance
+usbCover = cq.Workplane("XY")\
+    .box(usbCoverLength, usbCoverWidth, usbCoverHeight)\
+    .translate((-boxInnerWidth / 2 - usbCoverLength / 2 + clealance,
+                usbHoleCenterFromPCBCenter,
+                boxInnerHighHeight + usbCoverHeight / 2 - clealance))\
+    .edges("<X and >Z").fillet(boxFillet)
+cover = cover.union(usbCover)
 
 show(cover)
 show(body)
